@@ -1,0 +1,499 @@
+:root {
+  /* Light theme (default) */
+  --primary: #4f46e5;
+  --secondary: #818cf8;
+  --background: #f9fafb;
+  --text: #1f2937;
+  --card-bg: white;
+  --border-color: #e5e7eb;
+  --header-bg: #f8fafc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --link-color: #4f46e5;
+  --link-hover: #818cf8;
+  --link-bg: rgba(79, 70, 229, 0.1);
+}
+
+[data-theme="dark"] {
+  --primary: #818cf8;
+  --secondary: #4f46e5;
+  --background: #111827;
+  --text: #f9fafb;
+  --card-bg: #1f2937;
+  --border-color: #374151;
+  --header-bg: #1a2234;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --link-color: #818cf8;
+  --link-hover: #c7d2fe;
+  --link-bg: rgba(129, 140, 248, 0.1);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 2rem;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary);
+  animation: slideDown 0.5s ease-out;
+}
+
+.filters {
+  display: flex;
+  gap: 5rem;
+  margin-bottom: 1.5rem;
+  animation: slideRight 0.5s ease-out;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 280px;
+}
+
+.input-wrapper i {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.filters input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  padding-left: 2.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  background-color: var(--card-bg);
+  color: var(--text);
+}
+
+.filters input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
+  margin-bottom: 1.5rem;
+}
+
+th,
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr {
+  transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: var(--header-bg) !important;
+  transform: translateX(4px);
+}
+
+[data-theme="dark"] tbody tr:hover {
+  background-color: var(--card-bg) !important;
+  box-shadow: inset 0 0 0 1px var(--border-color);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.pagination button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 2px solid var(--primary);
+  background-color: transparent;
+  color: var(--primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.pagination button i {
+  font-size: 1rem;
+}
+
+.pagination span {
+  font-weight: 500;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.theme-toggle button {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text);
+}
+
+.theme-toggle button:hover {
+  transform: rotate(45deg);
+  border-color: var(--primary);
+}
+
+[data-theme="dark"] .fa-sun,
+[data-theme="light"] .fa-moon {
+  display: none;
+}
+
+/* Update existing styles */
+table {
+  background: var(--card-bg);
+}
+
+th {
+  background-color: var(--header-bg);
+  color: var(--text);
+}
+
+td {
+  color: var(--text);
+}
+
+/* Add responsive design */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .input-wrapper {
+    width: 100%;
+  }
+
+  table {
+    font-size: 0.875rem;
+  }
+}
+
+#pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+#pagination button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--primary);
+  background-color: transparent;
+  color: var(--primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#pagination button:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+#pagination button:active {
+  transform: translateY(0);
+}
+
+#pagination button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+}
+
+#pagination button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#pagination span {
+  font-weight: 500;
+  color: var(--text);
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#current-page,
+#total-pages {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Modern link styling */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.3rem;
+  transition: all 0.2s ease;
+  position: relative;
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--link-hover);
+  background: var(--link-bg);
+}
+
+a::after {
+  content: "↗";
+  font-size: 0.8em;
+  margin-left: 0.3em;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+a:hover::after {
+  opacity: 1;
+  transform: translateX(2px) translateY(-2px);
+}
+
+/* For table cells containing links */
+td a {
+  display: inline-flex;
+  align-items: center;
+  max-width: fit-content;
+}
+
+/* Add subtle underline animation */
+td a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--link-color);
+  transition: width 0.3s ease;
+}
+
+td a:hover::before {
+  width: 100%;
+}
+
+.view-toggle {
+  position: absolute;
+  top: 2rem;
+  right: 5rem;
+  margin-right: 1rem;
+}
+
+.view-toggle button {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.view-toggle button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.view-toggle button i {
+  font-size: 1rem;
+}
+
+[data-view="cards"] .fa-table,
+[data-view="table"] .fa-grid {
+  display: none;
+}
+
+/* Add this to your CSS */
+.cards-container {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+[data-view="cards"] .cards-container {
+  display: grid;
+}
+
+[data-view="cards"] table {
+  display: none;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px -1px var(--shadow-color);
+}
+
+.card h3 {
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--text);
+}
+
+.card-info i {
+  color: var(--primary);
+  width: 1.25rem;
+}
+
+.service-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--link-bg);
+  color: var(--primary);
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.service-tag:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}

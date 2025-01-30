@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Companies Viewer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Companies Viewer</h1>
+    <div class="filters">
+      <div class="input-wrapper">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          id="filter-services"
+          placeholder="Filter by service..."
+        />
+      </div>
+      <div class="input-wrapper">
+        <i class="fas fa-location-dot"></i>
+        <input
+          type="text"
+          id="search-location"
+          placeholder="Search by location..."
+        />
+      </div>
+    </div>
+    <div class="view-toggle">
+      <button id="view-toggle">
+        <i class="fas fa-table"></i>
+        <i class="fas fa-grid"></i>
+        <span>View</span>
+      </button>
+    </div>
+    <div class="theme-toggle">
+      <button id="theme-toggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+    <div class="view-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Company Name</th>
+            <th>Location</th>
+            <th>Website</th>
+            <th>Number</th>
+            <th>Services</th>
+          </tr>
+        </thead>
+        <tbody id="companies-table"></tbody>
+      </table>
+
+      <div class="cards-container" id="cards-container"></div>
+    </div>
+    <div id="pagination">
+      <button id="prev-page">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <span
+        >Page <span id="current-page">1</span> of
+        <span id="total-pages">1</span></span
+      >
+      <button id="next-page">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </body>
+</html>
